@@ -70,3 +70,46 @@ fi
 2. WSL启动命令行，改为：`wsl -d Ubuntu sh -c "cd ~;exec $SHELL"`
 
 参考：<https://github.com/microsoft/terminal/issues/3286>
+
+---
+
+## Perl
+
+### 读取并解析JSON
+
+```perl
+use JSON;
+use Data::Dumper;
+my $s = '{"a":[1,2],"b":"xyz"}';
+my $x = decode_json $utf8_json_text;
+print Dumper $x;
+```
+
+结果如下：
+
+```
+$VAR1 = {
+          'a' => [
+                   1,
+                   2
+                 ],
+          'b' => 'xyz'
+        };
+```
+
+参考：<https://metacpan.org/pod/JSON>
+
+### 宽字符print警告
+
+对于提示警告：`Wide character in print at ...`
+
+可以在perl脚本一开始加入：
+
+```perl
+use utf8;
+binmode(STDOUT, "encoding(UTF-8)");
+```
+
+进行解决。
+
+参考：<https://stackoverflow.com/questions/47940662/how-to-get-rid-of-wide-character-in-print-at>
