@@ -2,6 +2,31 @@
 
 ---
 
+## Tmux终端
+
+### 如何翻看tmux屏幕历史
+
+按下组合键`<Ctrl>` + `b`，放开，再按 `[`，即可进入滚屏模式，通过方向键或翻页键进行上下滚动，并可使用`<ESC>`键退出。
+
+参考：<https://www.geek-share.com/detail/2766041673.html>
+
+### 设置允许tmux屏幕显示颜色
+
+修改`~/.tmux.conf`配置文件，增加一行：
+```
+set -g default-terminal "screen-256color"
+```
+
+修改后，再次启动`tmux`，可以看到`TERM`环境变量已更新（此前是`screen`）：
+```sh
+$ echo $TERM
+screen-256color
+```
+
+参考：<https://unix.stackexchange.com/questions/1045/getting-256-colors-to-work-in-tmux>
+
+---
+
 ## SSH
 
 ### 如何查询当前SSH连接的客户端IP地址
