@@ -25,6 +25,21 @@ screen-256color
 
 参考：<https://unix.stackexchange.com/questions/1045/getting-256-colors-to-work-in-tmux>
 
+### 解决tmux中Ctrl+Left/Right不按单词移动光标的问题
+
+修改`~/.tmux.conf`文件，加入：
+```
+set-window-option -g xterm-keys on
+```
+
+或者直接操作：
+```
+C-b :set-window-option xterm-keys on
+```
+即按下`<Ctrl>`+`b`后，直接输入冒号（:）及之后的命令，然后回车。
+
+参考：<https://stackoverflow.com/questions/29474794/use-ctrl-left-right-to-move-forward-back-one-word-in-tmux-within-mobaxterm>
+
 ---
 
 ## SSH
